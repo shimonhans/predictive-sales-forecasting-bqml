@@ -12,7 +12,7 @@ This project focuses on building a robust time-series forecasting model to predi
 * **Visualization:** Looker Studio
 
 ## Dataset
-The raw data used for this project consists of 5 interconnected CSV files located in the "Dataset" directory:
+The raw data used for this project consists of 5 interconnected CSV files located in the `Dataset/` directory:
 
 * **`sales_pipeline.csv`**: Core transaction logs containing opportunity IDs, deal stages, and close values.
 * **`accounts.csv`**: Firmographic information including company sector, revenue size, and geographic location.
