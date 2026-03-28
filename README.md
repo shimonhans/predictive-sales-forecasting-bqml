@@ -36,6 +36,9 @@ I utilized the **ARIMA+ (Auto-Regressive Integrated Moving Average)** model in B
 A dynamic Looker Studio dashboard was developed to bridge the gap between complex ML outputs and executive decision-making:
 * **Actual vs. Forecast:** A continuous timeline showing historical performance vs. predicted future.
 * **Confidence Envelopes:** Shaded regions illustrating "Pessimistic" and "Optimistic" scenarios to help stakeholders manage risk.
+#### Looker Studio Dashboard
+![](Dashboard/revenue_forecast_db_screenshot.png)
+> Full dashboard --> ["Here!"](https://lookerstudio.google.com/reporting/1afc1d71-48fa-4ad2-8ea4-dd3febf6cfde)
 
 ## Key Results & Insights
 * **Projected Growth:** The model identified a **~9.1% revenue growth trend** for the upcoming quarter.
@@ -44,9 +47,16 @@ A dynamic Looker Studio dashboard was developed to bridge the gap between comple
 
 ## Repository Structure
 * `Dataset/`: Raw CSV datasets and metadata.
-* `sql/model_training.sql`: The ARIMA+ model creation and configuration.
-* `sql/forecasting_view.sql`: The SQL View used to power the Looker Studio dashboard.
-* `images/`: Screenshots of the final dashboard and forecast charts.
+* `sql/(01)_data_preparation.sql`: Joins the 5 raw CSV datasets into a master analytics table and aggregates 'Won' deals into a daily revenue time-series.
+* `sql/(02)_model_training.sql`: Configures and trains the ARIMA+ machine learning model in BigQuery, detecting seasonality and trends.
+* `sql/(03)_forecasting_result.sql`: Generates the raw forecast data for the next 90 days, including confidence intervals (Upper/Lower bounds).
+* `sql/(04)_forecasting_view.sql`: Creates the final BigQuery View that cleans and formats the data for seamless integration with the Looker Studio dashboard.
+* `Dashboard/`: Screenshot of the final dashboard and forecast charts.
 
 ## Business Impact
 This engine shifts the sales team from reactive "pipeline watching" to proactive "revenue planning." Executives can now allocate resources, set quotas, and manage cash flow based on statistically grounded projections rather than intuition.
+
+## ⚙️ How to Reproduce
+1. Upload the CSV files from the `/data` folder to your BigQuery dataset.
+2. Run the SQL scripts in the `sql/` folder sequentially from (01) to (04).
+3. Connect the resulting View from script (04) to Looker Studio.
