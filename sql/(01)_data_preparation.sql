@@ -1,4 +1,4 @@
-# Step 1: Prepare the Time-Series Data
+# Prepare the Time-Series Data
 
 CREATE OR REPLACE TABLE `crm_predictive_analytics.revenue_time_series` AS
 SELECT
