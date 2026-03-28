@@ -1,5 +1,5 @@
 # Prepare the Time-Series Data
-
+-- my dataset name: crm_predictive_analytics
 CREATE OR REPLACE TABLE `crm_predictive_analytics.revenue_time_series` AS
 SELECT
   -- 'ds' is the standard column name for the Date Stamp
